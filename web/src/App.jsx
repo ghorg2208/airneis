@@ -8,7 +8,7 @@ function App() {
   
 
   return (
-    <div className="page">
+    <div className="App">
       <Menu />
       <div className="container">
         <Outlet />
