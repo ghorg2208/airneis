@@ -7,6 +7,7 @@ const Footer = () => {
     const navigate = useNavigate();
 
     return (
+    <div>
     <footer  className="navbar navbar-expand-lg py-2 bg-primary d-flex  position-absolute w-100 m-0 fixed-bottom">
         <ul className="navbar-nav list-group list-group-horizontal justify-content-start">
                     <li className="nav-item ">
@@ -37,6 +38,7 @@ const Footer = () => {
                 </li>
         </ul>
   </footer>
+  </div>
    );
 }
  
