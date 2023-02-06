@@ -1,12 +1,14 @@
 import { NavLink, useNavigate } from "react-router-dom";
-
+import Linkedin from '/icons8-linkedin.svg';
+import Instagram from '/icons8-instagram.svg';
+import Facebook from '/icons8-facebook.svg';
 
 const Footer = () => {
     const navigate = useNavigate();
 
     return (
-    <footer  className="navbar navbar-expand-lg py-2 bg-primary justify-content-start position-absolute w-100 m-0 fixed-bottom">
-        <ul className="navbar-nav list-group list-group-horizontal">
+    <footer  className="navbar navbar-expand-lg py-2 bg-primary d-flex  position-absolute w-100 m-0 fixed-bottom">
+        <ul className="navbar-nav list-group list-group-horizontal justify-content-start">
                     <li className="nav-item ">
                         <NavLink to="/CGU" className={({isActive}) => {
                             return isActive ? "nav-link active text-light" : "nav-link text-white"
@@ -22,6 +24,17 @@ const Footer = () => {
                             return isActive ? "nav-link active text-light" : "nav-link text-white"
                         }}>Contact</NavLink>
                     </li>
+        </ul>
+        <ul className="navbar-nav list-group list-group-horizontal ms-auto"> 
+                <li className="nav-item">
+                    <a href="https://www.linkedin.com/search/results/all/?keywords=airneis&origin=GLOBAL_SEARCH_HEADER&sid=buo" target="_blank"><img src={Linkedin} alt="Linkedin Logo" /></a>
+                </li>
+                <li className="nav-item">
+                    <a href="https://www.instagram.com/airneis" target="_blank"><img src={Instagram} alt="Instagram Logo" /></a>
+                </li>
+                <li className="nav-item">
+                    <a href="https://www.facebook.com/search/top?q=airneis" target="_blank"><img src={Facebook} alt="Facebook Logo" /></a>
+                </li>
         </ul>
   </footer>
    );
