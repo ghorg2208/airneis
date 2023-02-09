@@ -33,12 +33,12 @@ const Accueil = () => {
       <Carousel dot={MyDot} />
     </Carousel >
     </div>
-    <div className="text-center mt-3 container-fluid">
+    <div className="text-center mt-3 mb-5 container-fluid">
         <h3>Venant des hautes terres d'écosse <br/> nos meubles sont immortels</h3>
         <div className="row">
-            <img className=" col-4" src="https://picsum.photos/800/600?random=4" />
-            <img className=" col-4" src="https://picsum.photos/800/600?random=5" />
-            <img className=" col-4" src="https://picsum.photos/800/600?random=6" />
+            <img className="mb-5 col-4" src="https://picsum.photos/800/600?random=4" />
+            <img className="mb-5 col-4" src="https://picsum.photos/800/600?random=5" />
+            <img className="mb-5 col-4" src="https://picsum.photos/800/600?random=6" />
         </div>
     </div>
     </>
