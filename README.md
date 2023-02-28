@@ -6,4 +6,6 @@ git branch "nombranche" : création d'une branche
 git checkout "nombranche" : aller dans la branche 
 git merge "nombranche" : fusionner la branche avec le main (oublie pas de pull avant)
 
+npm i 
 
+npm i joi react-router-dom better-react-carousel
