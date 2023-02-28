@@ -10,6 +10,7 @@ import MentionsLegales from './composants/front/Mentionslegales';
 import Contact from './composants/front/Contact';
 import Accueil from './composants/front/Accueil';
 import Produit from './composants/front/Produit';
+import Panier from './composants/front/Panier';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -20,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='Mentions-Legales' element={<MentionsLegales />} />
         <Route path='Contact' element={<Contact />} />
         <Route path='recherche' element={<Menu />} />
-        <Route path="panier" element={<Menu />} />
+        <Route path="panier" element={<Panier />} />
         <Route path="Menu" element={<Menu />} />
         <Route path='produit' element={<Produit />} />
       </Route>    

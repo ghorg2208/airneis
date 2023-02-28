@@ -32,7 +32,7 @@ const Menu = () => {
                             <img src="/public/search.svg" alt="search" width="28" height="28" /></NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/" className="nav-link">
+                        <NavLink to="/panier" className="nav-link">
                             <img src="/public/cart.svg" alt="cart" width="28" height="28" /></NavLink>
                     </li>
                     <li className="nav-item">
