@@ -7,8 +7,8 @@ const Footer = () => {
     const navigate = useNavigate();
 
     return (
-    <div>
-    <footer  className="navbar navbar-expand-lg py-2 bg-primary fixed-bottom w-100 m-0 bottom-0">
+    <div className="mt-5">
+    <footer  className="navbar navbar-expand-lg py-2 bg-primary w-100 m-0 bottom-0 ">
         <ul className="navbar-nav list-group list-group-horizontal justify-content-start">
                     <li className="nav-item ">
                         <NavLink to="/CGU" className={({isActive}) => {
