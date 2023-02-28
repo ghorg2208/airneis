@@ -22,6 +22,11 @@ const Menu = () => {
 
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item">
+                        <NavLink to="/" className={({isActive}) => {
+                            return isActive ? "nav-link active text-light" : "nav-link"
+                        }}>Accueil</NavLink>
+                    </li>
+                    <li className="nav-item">
                         <NavLink to="/" className="nav-link">
                             <img src="/public/search.svg" alt="search" width="28" height="28" /></NavLink>
                     </li>
