@@ -9,7 +9,7 @@ import { NavLink , useNavigate } from "react-router-dom"
 const Menu = () => {
     return ( 
 
-        <div className="bg-primary mb-4">
+        <div className="bg-primary mb-0">
             <nav className="navbar navbar-expand navbar-dark container">
                 <span className="navbar-brand">
                     {/** image en svg getbootstrap.com  */}
@@ -19,7 +19,13 @@ const Menu = () => {
                         <span className="nav-link">AIRNEIS</span>
                     </li>
                 </ul>
-
+                <ul className='navbar-nav'>
+                <li className="nav-item">
+                        <NavLink to="/produit" className="nav-link text-light">
+                            Produit
+                        </NavLink>
+                    </li>
+                </ul>
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item">
                         <NavLink to="/" className="nav-link">
