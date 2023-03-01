@@ -7,6 +7,7 @@ const Accueil = () => {
   const url = `/Categorie/`
   return (
     <>
+    <br />
       <div className="text-center">
         <Carousel cols={1} rows={1} gap={10} loop autoplay={5000}>
           <Carousel.Item>

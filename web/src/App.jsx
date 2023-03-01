@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Menu />
-      <div className="container-fluid m-0 p-0 d-flex justify-content-center">
+      <div className="container-fluid m-0 p-0 justify-content-center">
         <Outlet />
       </div>
       <Footer />
