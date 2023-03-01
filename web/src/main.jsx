@@ -15,6 +15,7 @@ import Meuble from './composants/front/Categorie/Meuble'
 import Lit from './composants/front/Categorie/Lit'
 
 import Produit from './composants/front/Produit';
+import Panier from './composants/front/Panier';
 
 import Inscription from './composants/front/Inscription';
 import Connexion from './composants/front/Connexion';
@@ -36,7 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='Mentions-Legales' element={<MentionsLegales />} />
         <Route path='Contact' element={<Contact />} />
         <Route path='recherche' element={<Menu />} />
-        <Route path="panier" element={<Menu />} />
+        <Route path="panier" element={<Panier />} />
         <Route path="Menu" element={<Menu />} />
         <Route path='produit' element={<Produit />} />
       </Route>    
