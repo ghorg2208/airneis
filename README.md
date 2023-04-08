@@ -8,4 +8,5 @@ git merge "nombranche" : fusionner la branche avec le main (oublie pas de pull a
 
 npm i 
 
-npm i joi react-router-dom better-react-carousel
+npm i joi react-router-dom better-react-carousel firebase
+
