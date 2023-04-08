@@ -1,6 +1,8 @@
 import Caroussel from "../back/Caroussel";
+import { useProduit } from "../../hook/useProduit";
 
 const Produit = () => {
+    const [produits] = useProduit()
     const images = [
         'https://picsum.photos/1200/300?random=1',
         'https://picsum.photos/1200/300?random=2',
