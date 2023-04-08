@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Tables",
+        "description": "Découvrez nos tables d'intérieur, robustes et ésthétiques",
+        "category_id":0
+
+    },
+    {
+        "name": "Étagères",
+        "description": "Nos étagères sont adaptés à tout type de décorations",
+        "category_id":1
+
+    },
+    {
+        "name": "Lits",
+        "description": "Venez découvrir nos lits de rêve",
+        "category_id":2
+
+    }
+]       

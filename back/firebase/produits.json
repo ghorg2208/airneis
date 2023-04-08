@@ -1,0 +1,35 @@
+[
+            {
+            
+                "product_id": 0,
+                "name": "Table Rouge",
+                "description": "Magnifique table rouge 40x50x90cm",
+                "price":"59,99",
+                "image":"lien image",
+                "quantity": 10,
+                "category_id":1
+
+            },
+            {
+            
+              "product_id": 1,
+              "name": "Table Bleue",
+              "description": "Magnifique table Bleue 40x50x90cm",
+              "price":"59,99",
+              "image":"lien image",
+              "quantity": 10,
+              "category_id":1
+
+          },
+          {
+            
+            "product_id": 2,
+            "name": "Table Jaune",
+            "description": "Magnifique table Jaune 40x50x90cm",
+            "price":"59,99",
+            "image":"lien image",
+            "quantity": 10,
+            "category_id":1
+
+        }
+        ]       
