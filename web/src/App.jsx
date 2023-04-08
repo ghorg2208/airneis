@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import Menu from './composants/Menu'
 import Footer from './composants/front/Footer'
 import { Outlet } from 'react-router-dom'
+import firebase from "firebase/app";
+import "firebase/firestore";
+
 
 function App() {
   
