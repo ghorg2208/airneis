@@ -38,7 +38,7 @@ const Contact = () => {
                     rows={5} 
                     ref={messageRef}
                     onFocus={handleFocus}></textarea>
-                <input type="submit" className="btn btn-dark" />
+                <div className="d-flex justify-content-center"><input type="submit" className="btn btn-dark" /></div>
             </form>
         </div>
         
