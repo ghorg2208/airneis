@@ -33,7 +33,7 @@ const Menu = () => {
                         }}>Accueil</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/" className="nav-link">
+                        <NavLink to="/recherche" className="nav-link">
                             <img src="/public/search.svg" alt="search" width="28" height="28" /></NavLink>
                     </li>
                     <li className="nav-item">

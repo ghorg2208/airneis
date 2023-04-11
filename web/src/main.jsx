@@ -19,6 +19,7 @@ import Panier from './composants/front/Panier';
 
 import Inscription from './composants/front/Inscription';
 import Connexion from './composants/front/Connexion';
+import Recherche from './composants/front/Recherche';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -32,11 +33,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
         <Route path='Inscription' element={<Inscription />} />
         <Route path='Connexion' element={<Connexion />} />
-
+        
         <Route path='CGU' element={<Cgu />} />
         <Route path='Mentions-Legales' element={<MentionsLegales />} />
         <Route path='Contact' element={<Contact />} />
-        <Route path='recherche' element={<Menu />} />
+        <Route path='recherche' element={<Recherche />} />
         <Route path="panier" element={<Panier />} />
         <Route path="Menu" element={<Menu />} />
         <Route path='produit' element={<Produit />} />
