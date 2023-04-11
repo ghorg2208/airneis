@@ -17,8 +17,8 @@ const Contact = () => {
     }
 
     return (
-    <>
-        <h1 className="text-center">Nous contacter</h1>
+    <div className="p-5">
+        <h1 className="text-center mb-3">Nous contacter</h1>
         <p>Pour nous contacter, veuillez compléter le formulaire suivant :</p>
         <div className="row">
             <form onSubmit={handleSubmit} className="col-12">
@@ -43,7 +43,7 @@ const Contact = () => {
         </div>
         
         <Alert alerte={alerte} />
-    </>
+    </div>
     );
 }
  
