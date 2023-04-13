@@ -48,6 +48,17 @@ const Recherche = () => {
       // Perform the search and filtering based on the current state values
       // ...
     };
+
+    const handleResetClick = () => {
+      setSearchText('');
+      setMaterial('');
+      setMinPrice('');
+      setMaxPrice('');
+      setCategories([]);
+      setInStockOnly(false);
+      setSortBy('price-asc');
+    };
+    
   
     return (
       <Container className='m-5'>
@@ -65,26 +76,28 @@ const Recherche = () => {
           </Col>
         </Row>
         {showOptions && (
-          <Row >
-            <Col md={5} className='ms-auto'>
-              <Form.Label>Materiau</Form.Label>
+          <Row className='position-absolute start-50 w-50 filtre bg-light' >
+            <Col  className='ms-auto w-50 my-2'>
+              <Button className='my-2' variant="secondary" onClick={handleResetClick}>Réinitialiser</Button>
+              <br />
+              <Form.Label className='my-2'>Materiau</Form.Label>
               <Form.Control type="text" value={material} onChange={handleMaterialChange} />
             
-              <Form.Label>Prix min.</Form.Label>
+              <Form.Label className='my-2'>Prix min.</Form.Label>
               <Form.Control type="number" value={minPrice} onChange={handleMinPriceChange} />
             
-              <Form.Label>Prix max.</Form.Label>
+              <Form.Label className='my-2'>Prix max.</Form.Label>
               <Form.Control type="number" value={maxPrice} onChange={handleMaxPriceChange} />
             
-              <Form.Label>Categories</Form.Label>
+              <Form.Label className='my-2'>Categories</Form.Label>
               <Form.Control as="select" multiple value={categories} onChange={handleCategoriesChange}>
                 <option value="category1">Category 1</option>
                 <option value="category2">Category 2</option>
                 <option value="category3">Category 3</option>
               </Form.Control>
             
-              <Form.Check type="checkbox" label="Only show products in stock" checked={inStockOnly} onChange={handleInStockOnlyChange} />
-              <Form.Label>Trier par</Form.Label>
+              <Form.Check className='my-2'type="checkbox" label="Only show products in stock" checked={inStockOnly} onChange={handleInStockOnlyChange} />
+              <Form.Label className='my-2'>Trier par</Form.Label>
               <Form.Control as="select" value={sortBy} onChange={handleSortByChange}>
                 <option value="price-asc">Prix min. au max.</option>
                 <option value="price-desc">Prix max. au min.</option>

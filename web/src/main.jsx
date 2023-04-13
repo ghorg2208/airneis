@@ -20,7 +20,7 @@ import Panier from './composants/front/Panier';
 import Inscription from './composants/front/Inscription';
 import Connexion from './composants/front/Connexion';
 import Recherche from './composants/front/Recherche';
-
+import './app.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
