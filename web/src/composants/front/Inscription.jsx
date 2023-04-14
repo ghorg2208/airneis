@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Style.css';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({
@@ -25,15 +26,17 @@ const RegistrationPage = () => {
 
   return (
     <>
-      <div>
-        <div className='my-3 text-center'>
-          <h1>Inscription</h1>
-        </div>
-        <br />
-      <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
-        <form onSubmit={handleSubmit}>
-          <div>
+
+    <className className="body">
+      <className className="wrapper2">
+        <className className="form-box login">
+        <h2>Inscription</h2>
+        
+        
+          <form onSubmit={handleSubmit}>
             
+            
+            <div className="input-box2">
             <label>
               <h6>Nom Complet:</h6>
               <input
@@ -43,11 +46,9 @@ const RegistrationPage = () => {
                 onChange={handleInputChange}
                 />
             </label>
-          </div>
-
-          <br />
-
-          <div className='my-3'>
+            </div>
+          
+            <div className="input-box3">
             <label>
               <h6>Email:</h6>
               <input
@@ -57,11 +58,10 @@ const RegistrationPage = () => {
                 onChange={handleInputChange}
                 />
             </label>
-          </div>
+            </div>
 
-          <br />
-
-          <div className='my-3'>
+        
+            <div className="input-box3">
             <label>
               <h6>Mot de Passe:</h6>
               <input
@@ -71,19 +71,27 @@ const RegistrationPage = () => {
                 onChange={handleInputChange}
                 />
             </label>
+            </div>
+         
+          
+          <div className='btn-inscription'>
+            <button className='btn' type="submit">S'inscrire</button>
           </div>
-          <br />
-          <div className='mt-3 text-center'>
-            <button style={{ maxWidth: '100%', maxHeight: '100%' }} type="submit">S'inscrire</button>
-          </div>
-        </form>
-      </div>
+          </form>
+      
 
         <div>
           <br />
           <h6>Déjà un compte ? <a href="/Connexion">Connectez-vous.</a></h6>
         </div>
-      </div>
+      
+
+        </className>
+      </className>
+    </className>
+      
+        
+          
     </>
   );
 };
