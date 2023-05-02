@@ -7,6 +7,8 @@ import Camembert from "../back/Camembert";
 
 const Backoffice = () => {
     const [granularity, setGranularity] = useState("daily");
+    const [categoryGranularity, setCategoryGranularity] = useState("daily");
+
     const dailySalesData = [
         { name: "Jour 1", sales: 4000 },
         { name: "Jour 2", sales: 3000 },
@@ -35,6 +37,14 @@ const Backoffice = () => {
         { name: "Jour 7", category1: 480, category2: 380, category3: 430 }
     ];
     
+    const weeklyCategoryData = [
+        { name: "Semaine 1", category1: 13980, category2: 6980, category3: 4390 },
+        { name: "Semaine 2", category1: 12980, category2: 7780, category3: 4390 },
+        { name: "Semaine 3", category1: 9980, category2: 6390, category3: 3200 },
+        { name: "Semaine 4", category1: 13980, category2: 27800, category3: 9480 },
+        { name: "Semaine 5", category1: 11980, category2: 23900, category3: 8430 }
+    ];
+      
     const pieChartData = [
         { name: "Catégorie 1", value: 400 },
         { name: "Catégorie 2", value: 300 },
@@ -43,17 +53,18 @@ const Backoffice = () => {
     ];
 
     return ( 
-    <div>
+    <div className="m-5">
         <h1>Tableau de bord</h1>
 
         <div>
-            <h2>Ventes totales</h2>
-                
+            <h2>Ventes totales</h2>    
                 <Histogramme data={granularity === "daily" ? dailySalesData : weeklySalesData} granularity={granularity} />
                 <button onClick={() => setGranularity("daily")}>Journalier</button>
                 <button onClick={() => setGranularity("weekly")}>Hebdomadaire</button>
             <h2>Paniers moyens par catégorie</h2>
-                <HistogrammeAvg data={categoryData} granularity={granularity} />
+                <HistogrammeAvg data={categoryGranularity === "daily" ? categoryData : weeklyCategoryData} granularity={categoryGranularity} />
+                <button onClick={() => setCategoryGranularity("daily")}>Journalier</button>
+                <button onClick={() => setCategoryGranularity("weekly")}>Hebdomadaire</button>
             <h2>Volume de vente par catégorie</h2>
                 <Camembert data={pieChartData} />
     </div>
