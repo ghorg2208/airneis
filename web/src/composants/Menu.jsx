@@ -25,6 +25,11 @@ const Menu = () => {
                             Produit
                         </NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink to="/Backoffice" className={({isActive}) => {
+                            return isActive ? "nav-link active text-light" : "nav-link"
+                        }}>Backoffice</NavLink>
+                    </li>
                 </ul>
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item">
@@ -32,6 +37,7 @@ const Menu = () => {
                             return isActive ? "nav-link active text-light" : "nav-link"
                         }}>Accueil</NavLink>
                     </li>
+                    
                     <li className="nav-item">
                         <NavLink to="/recherche" className="nav-link">
                             <img src="/public/search.svg" alt="search" width="28" height="28" /></NavLink>
