@@ -3,11 +3,39 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid,Tooltip,Legend,PieChart,Pie,C
 import Histogramme from '../back/Histogramme';
 import HistogrammeAvg from '../back/Histogrammeavg';
 import Camembert from "../back/Camembert";
+import { useProduit } from "../../hook/useProduit";
 
 
 const Backoffice = () => {
+    const [produits] = useProduit()
     const [granularity, setGranularity] = useState("daily");
     const [categoryGranularity, setCategoryGranularity] = useState("daily");
+    const [sortBy, setSortBy] = useState(null);
+    const [sortOrder, setSortOrder] = useState(null);
+    const [selectedProduits, setSelectedProduits] = useState([]);
+
+    const handleSort = (colName) => {
+        if (sortBy === colName) {
+        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        } else {
+        setSortBy(colName);
+        setSortOrder('asc');
+        }
+    };
+
+    const handleSelect = (produitId) => {
+        if (selectedProduits.includes(produitId)) {
+        setSelectedProduits(selectedProduits.filter((id) => id !== produitId));
+        } else {
+        setSelectedProduits([...selectedProduits, produitId]);
+        }
+    };
+
+    // Supprime un produit
+  const onProduitDelete = (produitToDelete) => {
+    const dbRef = firebase.database().ref(`produits/${produitToDelete.product_id}`);
+    dbRef.remove();
+  };
 
     const dailySalesData = [
         { name: "Jour 1", sales: 4000 },
@@ -54,18 +82,75 @@ const Backoffice = () => {
 
     return ( 
     <div className="m-5">
-        <h1>Tableau de bord</h1>
+        <div className="d-flex w-100">
+        <table  className="table table-striped">
+      <thead>
+        <tr>
+          <th onClick={() => handleSort('product_id')}>ID {sortBy === 'product_id' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}</th>
+          <th onClick={() => handleSort('name')}>Nom {sortBy === 'name' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}</th>
+          <th>Description</th>
+          <th onClick={() => handleSort('price')}>Prix {sortBy === 'price' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}</th>
+          <th onClick={() => handleSort('quantity')}>Quantité {sortBy === 'quantity' && <span>{sortOrder === 'asc' ? '▲' : '▼'}</span>}</th>
+          <th>Catégorie</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {produits
+          .sort((a, b) => {
+            if (sortBy === null) return 0;
+            if (a[sortBy] > b[sortBy]) return sortOrder === 'asc' ? 1 : -1;
+            if (a[sortBy] < b[sortBy]) return sortOrder === 'asc' ? -1 : 1;
+            return 0;
+          })
+          .map((produit) => (
+            <tr key={produit.product_id}>
+              <td>{produit.product_id}</td>
+              <td>{produit.name}</td>
+              <td>{produit.description}</td>
+              <td>{produit.price}</td>
+              <td>{produit.quantity}</td>
+              <td>{produit.category_id}</td>
+              <td>
+                <button className="mx-2" onClick={() => onProduitDelete(produit)}>Supprimer</button>
+                <button className="mx-2" onClick={() => onProduitDetails(produit)}>Détails</button>
+                <button className="mx-2" onClick={() => onProduitEdit(produit)}>Modifier</button>
+              </td>
+            </tr>
+          ))}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colSpan={7}>
+            <button onClick={() => onProduitCreate()}>Nouveau produit</button>
+            {selectedProduits.length > 0 && (
+              <button onClick={() => {
+                selectedProduits.forEach((produitId) => {
+                  const produitToDelete = produits.find((produit) => produit.product_id === produitId);
+                  if (produitToDelete) onProduitDelete(produitToDelete);
+                  });
+                  setSelectedProduits([]);
+                  }}>
+                  Supprimer les produits sélectionnés ({selectedProduits.length})
+                  </button>
+                  )}
+                  </td>
+            </tr>
+        </tfoot>
+    </table>
 
+        </div>
+        <h1>Tableau de bord</h1>
         <div>
-            <h2>Ventes totales</h2>    
+            <h2 className="my-3">Ventes totales</h2>    
                 <Histogramme data={granularity === "daily" ? dailySalesData : weeklySalesData} granularity={granularity} />
                 <button onClick={() => setGranularity("daily")}>Journalier</button>
                 <button onClick={() => setGranularity("weekly")}>Hebdomadaire</button>
-            <h2>Paniers moyens par catégorie</h2>
+            <h2 className="my-3"> Paniers moyens par catégorie</h2>
                 <HistogrammeAvg data={categoryGranularity === "daily" ? categoryData : weeklyCategoryData} granularity={categoryGranularity} />
                 <button onClick={() => setCategoryGranularity("daily")}>Journalier</button>
                 <button onClick={() => setCategoryGranularity("weekly")}>Hebdomadaire</button>
-            <h2>Volume de vente par catégorie</h2>
+            <h2 className="my-3"> Volume de vente par catégorie</h2>
                 <Camembert data={pieChartData} />
     </div>
     </div>

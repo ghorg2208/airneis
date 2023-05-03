@@ -40,15 +40,15 @@ const Menu = () => {
                     
                     <li className="nav-item">
                         <NavLink to="/recherche" className="nav-link">
-                            <img src="/public/search.svg" alt="search" width="28" height="28" /></NavLink>
+                            <img src="/search.svg" alt="search" width="28" height="28" /></NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink to="/panier" className="nav-link">
-                            <img src="/public/cart.svg" alt="cart" width="28" height="28" /></NavLink>
+                            <img src="/cart.svg" alt="cart" width="28" height="28" /></NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink to="/" className="nav-link">
-                            <img src="/public/list.svg" alt="list" width="28" height="28" /></NavLink>
+                            <img src="/list.svg" alt="list" width="28" height="28" /></NavLink>
                     </li>
                 </ul>
             </nav>
