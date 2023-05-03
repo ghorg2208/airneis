@@ -105,6 +105,13 @@ const Backoffice = () => {
           })
           .map((produit) => (
             <tr key={produit.product_id}>
+                <td>
+                <input
+                  type="checkbox"
+                  checked={selectedProduits.includes(produit.product_id)}
+                  onChange={() => handleSelect(produit.product_id)}
+                />
+              </td>
               <td>{produit.product_id}</td>
               <td>{produit.name}</td>
               <td>{produit.description}</td>
@@ -121,20 +128,20 @@ const Backoffice = () => {
       </tbody>
       <tfoot>
         <tr>
-          <td colSpan={7}>
-            <button onClick={() => onProduitCreate()}>Nouveau produit</button>
-            {selectedProduits.length > 0 && (
-              <button onClick={() => {
-                selectedProduits.forEach((produitId) => {
-                  const produitToDelete = produits.find((produit) => produit.product_id === produitId);
-                  if (produitToDelete) onProduitDelete(produitToDelete);
-                  });
-                  setSelectedProduits([]);
-                  }}>
-                  Supprimer les produits sélectionnés ({selectedProduits.length})
-                  </button>
-                  )}
-                  </td>
+                <td colSpan={7}>
+                    <button className="mx-2" onClick={() => onProduitCreate()}>Nouveau produit</button>
+                    {selectedProduits.length > 0 && (
+                    <button className="mx-2" onClick={() => {
+                        selectedProduits.forEach((produitId) => {
+                        const produitToDelete = produits.find((produit) => produit.product_id === produitId);
+                        if (produitToDelete) onProduitDelete(produitToDelete);
+                        });
+                        setSelectedProduits([]);
+                    }}>
+                        Supprimer les produits sélectionnés ({selectedProduits.length})
+                    </button>
+                    )}
+                </td>
             </tr>
         </tfoot>
     </table>
