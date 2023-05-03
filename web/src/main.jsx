@@ -21,6 +21,7 @@ import Inscription from './composants/front/Inscription';
 import Connexion from './composants/front/Connexion';
 import Recherche from './composants/front/Recherche';
 import './app.css'
+import Backoffice from './composants/front/backoffice';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
@@ -33,7 +34,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
         <Route path='Inscription' element={<Inscription />} />
         <Route path='Connexion' element={<Connexion />} />
-        
+        <Route path='Backoffice' element={<Backoffice />} />
         <Route path='CGU' element={<Cgu />} />
         <Route path='Mentions-Legales' element={<MentionsLegales />} />
         <Route path='Contact' element={<Contact />} />
