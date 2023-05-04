@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import useEmailValidation from '../../hook/useEmailExiste';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const RegistrationPage = () => {
     password: '',
   });
 
+  const isEmailValid = useEmailValidation(formData.email);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -15,13 +18,18 @@ const RegistrationPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!isEmailValid) {
+      console.log("Email déjà utilisé.");
+      return;
+    }
     try {
-      const response = await axios.post('http://localhost:3000/api/register', formData);//Lien de l'api a modifier 
+      const response = await axios.post(`${import.meta.env.VITE_API}clients.json`, formData);
       console.log(response.data);
     } catch (error) {
       console.error(error);
     }
   };
+
 
   return (
     <>
@@ -79,7 +87,7 @@ const RegistrationPage = () => {
         </form>
       </div>
 
-        <div>
+        <div className='text-center'>
           <br />
           <h6>Déjà un compte ? <a href="/Connexion">Connectez-vous.</a></h6>
         </div>

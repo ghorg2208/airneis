@@ -20,12 +20,12 @@ const ConnexionPage = () => {
   return (
     <>
     <div>
-        <div className='my-3'>
+        <div className='my-3 text-center'>
             <h1>Connexion</h1>
         </div>
       <form onSubmit={handleSubmit}>
 
-        <div className='my-3'>
+        <div className='my-3 text-center'>
             <label>
             <h6>Email:</h6>
             <input
@@ -39,7 +39,7 @@ const ConnexionPage = () => {
         
         <br />
 
-        <div className='my-3'>
+        <div className='my-3 text-center'>
             <label>
             <h6>Mot de Passe:</h6>
             <input
@@ -51,7 +51,7 @@ const ConnexionPage = () => {
             </label>
         </div>
       </form>
-        <div>
+        <div className='text-center'>
             <h6>Pas de compte ? <a href="/Inscription">Inscrivez-vous.</a></h6>
         </div>
         <div className='mt-3 text-center'>

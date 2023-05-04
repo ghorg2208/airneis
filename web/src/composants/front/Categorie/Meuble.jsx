@@ -5,7 +5,7 @@ const Categorie = () => {
 console.log("Meuble")
 return (
 <>
-<div className="text-center mb-5">
+<div className="text-center mb-5 mt-5">
     <img src={'https://picsum.photos/1200/300?random=${id}'} />
 </div>
 <div className="text-center">
