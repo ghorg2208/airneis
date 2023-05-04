@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import useEmailValidation from '../../hook/useEmailExiste';
+import useEmailValidation from '../../verif/useEmailExiste';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({
@@ -16,10 +16,11 @@ const RegistrationPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const [errorMessage, setErrorMessage] = useState('');
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!isEmailValid) {
-      console.log("Email déjà utilisé.");
+      setErrorMessage("L'adresse e-mail est déjà utilisée.");
       return;
     }
     try {
@@ -86,7 +87,9 @@ const RegistrationPage = () => {
           </div>
         </form>
       </div>
-
+      <div id="message-container" className="error-message text-center">
+        {errorMessage}
+      </div>
         <div className='text-center'>
           <br />
           <h6>Déjà un compte ? <a href="/Connexion">Connectez-vous.</a></h6>
