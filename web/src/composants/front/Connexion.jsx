@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import useLoginValidation from '../../verif/useLoginValidation';
+import { AuthContext } from '../../context/Authcontext';
 
 const ConnexionPage = () => {
   const [formData, setFormData] = useState({
@@ -6,58 +9,82 @@ const ConnexionPage = () => {
     password: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+  const isLoginValid = useLoginValidation(formData.email, formData.password);
+
+  const { isAuthenticated, logIn } = useContext(AuthContext);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Ajoutez ici le code pour traiter le formulaire d'inscription
-    console.log(formData);
+    if (!isLoginValid) {
+      setErrorMessage("L'adresse e-mail ou le mot de passe est incorrect.");
+    } else {
+      logIn();
+      window.location.href = '/';
+    }
   };
+
+  //useEffect(() => {
+    //if (localStorage.getItem('isAuthenticated') === 'true') {
+      //logIn();
+    //}
+  //}, [logIn]);
 
   return (
     <>
-    <div>
+      <div>
         <div className='my-3 text-center'>
-            <h1>Connexion</h1>
+          <h1>Connexion</h1>
         </div>
-      <form onSubmit={handleSubmit}>
-
-        <div className='my-3 text-center'>
-            <label>
-            <h6>Email:</h6>
-            <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-            />
-            </label>
-        </div>
-        
         <br />
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>
+                <h6>Email:</h6>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
 
-        <div className='my-3 text-center'>
-            <label>
-            <h6>Mot de Passe:</h6>
-            <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-            />
-            </label>
+            <br />
+
+            <div className='my-3'>
+              <label>
+                <h6>Mot de Passe:</h6>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
+            <br />
+            <div className='mt-3 text-center'>
+              <button style={{ maxWidth: '100%', maxHeight: '100%' }} type="submit">Se connecter</button>
+            </div>
+          </form>
         </div>
-      </form>
+        {errorMessage && (
+          <div id="message-container" className="error-message text-center">
+            {errorMessage}
+          </div>
+        )}
         <div className='text-center'>
-            <h6>Pas de compte ? <a href="/Inscription">Inscrivez-vous.</a></h6>
+          <br />
+          <h6>Pas de compte ? <Link to="/Inscription">Inscrivez-vous.</Link></h6>
         </div>
-        <div className='mt-3 text-center'>
-            <button style={{ maxWidth: '100%', maxHeight: '100%' }} type="submit">Se connecter</button>
-        </div>
-    </div>
+      </div>
     </>
   );
 };
