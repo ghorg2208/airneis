@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import useLoginValidation from '../../verif/useLoginValidation';
 import { AuthContext } from '../../context/Authcontext';
@@ -12,7 +12,7 @@ const ConnexionPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const isLoginValid = useLoginValidation(formData.email, formData.password);
 
-  const { isAuthenticated, logIn } = useContext(AuthContext);
+  const { isAuthenticated, login } = useContext(AuthContext);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -24,16 +24,10 @@ const ConnexionPage = () => {
     if (!isLoginValid) {
       setErrorMessage("L'adresse e-mail ou le mot de passe est incorrect.");
     } else {
-      logIn();
+      login();
       window.location.href = '/';
     }
   };
-
-  //useEffect(() => {
-    //if (localStorage.getItem('isAuthenticated') === 'true') {
-      //logIn();
-    //}
-  //}, [logIn]);
 
   return (
     <>
