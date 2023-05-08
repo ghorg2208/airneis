@@ -71,7 +71,7 @@ const Recherche = () => {
                 value={searchText}
                 onChange={handleSearchTextChange}
               />
-              <Button variant="primary" onClick={handleFilterClick}>Filtrer</Button>
+              <Button className='btn-brown' onClick={handleFilterClick}>Filtrer</Button>
             </InputGroup>
           </Col>
         </Row>
@@ -109,7 +109,7 @@ const Recherche = () => {
                 )}
                 <Row className='my-3 text-center'>
                 <Col>
-                <Button variant="primary" onClick={handleSearchClick}>Rechercher</Button>
+                <Button className='btn-brown' onClick={handleSearchClick}>Rechercher</Button>
                 </Col>
                 </Row>
                 <Row className='mt-5' >

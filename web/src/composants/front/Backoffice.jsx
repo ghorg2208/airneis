@@ -120,7 +120,7 @@ const Backoffice = () => {
               <td>{produit.category_id}</td>
               <td>
                 <button className="btn btn-danger mx-2" onClick={() => onProduitDelete(produit)}>Supprimer</button>
-                <button className="mx-2 btn-brown" onClick={() => onProduitDetails(produit)}>Détails</button>
+                <button className="mx-2 btn btn-brown" onClick={() => onProduitDetails(produit)}>Détails</button>
                 <button className="mx-2 btn btn-warning" onClick={() => onProduitEdit(produit)}>Modifier</button>
               </td>
             </tr>
@@ -131,7 +131,7 @@ const Backoffice = () => {
                 <td colSpan={7}>
                     <button className="btn btn-success mx-2" onClick={() => onProduitCreate()}>Nouveau produit</button>
                     {selectedProduits.length > 0 && (
-                    <button className="mx-2" onClick={() => {
+                    <button className="btn btn-danger mx-2" onClick={() => {
                         selectedProduits.forEach((produitId) => {
                         const produitToDelete = produits.find((produit) => produit.product_id === produitId);
                         if (produitToDelete) onProduitDelete(produitToDelete);
@@ -151,12 +151,12 @@ const Backoffice = () => {
         <div>
             <h2 className="my-3">Ventes totales</h2>    
                 <Histogramme data={granularity === "daily" ? dailySalesData : weeklySalesData} granularity={granularity} />
-                <button className="btn-brown mx-2" onClick={() => setGranularity("daily")}>Journalier</button>
-                <button className="btn-brown mx-2" onClick={() => setGranularity("weekly")}>Hebdomadaire</button>
+                <button className="btn btn-brown mx-2" onClick={() => setGranularity("daily")}>Journalier</button>
+                <button className="btn btn-brown mx-2" onClick={() => setGranularity("weekly")}>Hebdomadaire</button>
             <h2 className="my-3"> Paniers moyens par catégorie</h2>
                 <HistogrammeAvg data={categoryGranularity === "daily" ? categoryData : weeklyCategoryData} granularity={categoryGranularity} />
-                <button className="btn-brown mx-2" onClick={() => setCategoryGranularity("daily")}>Journalier</button>
-                <button className="btn-brown mx-2" onClick={() => setCategoryGranularity("weekly")}>Hebdomadaire</button>
+                <button className="btn btn-brown mx-2" onClick={() => setCategoryGranularity("daily")}>Journalier</button>
+                <button className="btn btn-brown mx-2" onClick={() => setCategoryGranularity("weekly")}>Hebdomadaire</button>
             <h2 className="my-3"> Volume de vente par catégorie</h2>
                 <Camembert data={pieChartData} />
     </div>

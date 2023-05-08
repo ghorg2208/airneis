@@ -35,6 +35,26 @@
   color: black;
 }
 
-button:hover {
+.btn-lbrown {
+  border-radius: 5px;
+  border: 1px; 
+  border-color: #E8D5CC  ;
+
+  background-color: white ;
+  color: #E8D5CC;
+}
+
+.btn-brown-reverse {
+  border-radius: 5px;
+  border: 1px; 
+  border-color: #BDA18A;
+
+  background-color: #F5EFE6  ;
+  color: #BDA18A ;
+}
+
+
+.btn-brown:hover {
   background-color: #BDA18A ;
 }
+
