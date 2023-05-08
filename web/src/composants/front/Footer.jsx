@@ -8,8 +8,8 @@ const Footer = () => {
 
     return (
     <div className="mt-5">
-    <footer  className="navbar navbar-expand-lg py-2 bg-primary w-100 m-0 bottom-0 ">
-        <ul className="navbar-nav list-group list-group-horizontal justify-content-start">
+    <footer  className="navbar navbar-expand-lg py-2 bg-brown w-100 m-0 bottom-0 ">
+        <ul className="navbar-nav list-group list-group-horizontal justify-content-start fs-5">
                     <li className="nav-item ">
                         <NavLink to="/CGU" className={({isActive}) => {
                             return isActive ? "nav-link active text-light" : "nav-link text-white"
