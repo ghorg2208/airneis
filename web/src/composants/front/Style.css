@@ -69,6 +69,10 @@ button{
 
 }
 
+.text-center{
+    margin-top: 60px;
+}
+
 header{
     position: fixed;
     top: 0;
@@ -368,6 +372,7 @@ user-select: none;
   
   
   .footer-distributed {
+    position: bottom;
     font-family: Roboto;
     background-color: #292c2f;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -403,7 +408,7 @@ user-select: none;
   }
   
   .footer-distributed .footer-links a:before {
-    content: "·";
+    content: " ";
     font-size: 20px;
     left: 0;
     color: #fff;
@@ -441,7 +446,7 @@ user-select: none;
   
   /* Media Queries */
   
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     .footer-distributed .footer-left, .footer-distributed .footer-right {
       text-align: center;
     }
