@@ -52,17 +52,42 @@ const Menu = () => {
         <header>
             <h2 className="logo">Logo</h2>
             <nav className="navigation">
-            <NavLink to="/"> Acceuil</NavLink>
+                <NavLink to="/"> Acceuil</NavLink>
                 <a href='#'>coucou</a>
                 <a href='#'>Rechercher</a>
                 <NavLink to="/panier"> <img src="/public/cart.svg" alt="cart" width="28" height="28" /> </NavLink>
                 <button className="login-menu">LogIn</button>
             </nav>
+            
+            <div className="subMenuWrap">
+                <div className="subMenu">
+                    <a href="#" className="subMenuLink">
+                        <img src="#" />
+                        <p>Lien 1</p>
+                        <span></span>
+                    </a>
 
-            <script>
-                let profile = document.querySelector('.profile');
-                let menu = document.querySelector('.menu');
-            </script>
+                    <a href="#" className="subMenuLink">
+                        <img src="#" />
+                        <p>Lien 2</p>
+                        <span></span>
+                    </a>
+
+                    <a href="#" className="subMenuLink">
+                        <img src="#" />
+                        <p>Lien 3</p>
+                        <span></span>
+                    </a>
+
+                    <a href="#" className="subMenuLink">
+                        <img src="#" />
+                        <p>Lien 4</p>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+
+
         </header>
 
 

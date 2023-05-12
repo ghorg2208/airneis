@@ -189,3 +189,14 @@ nav .menu ul li a ion-icon {
     color: #999;
 
 }
+
+/***** menu burger 2*****/
+
+.subMenu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0px 10px;
+}
+
