@@ -58,6 +58,11 @@ const Menu = () => {
                 <NavLink to="/panier"> <img src="/public/cart.svg" alt="cart" width="28" height="28" /> </NavLink>
                 <button className="login-menu">LogIn</button>
             </nav>
+
+            <script>
+                let profile = document.querySelector('.profile');
+                let menu = document.querySelector('.menu');
+            </script>
         </header>
 
 

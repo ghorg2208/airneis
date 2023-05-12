@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Style.css';
+import './StyleTempo.css';
 
 const RegistrationPage = () => {
   const [formData, setFormData] = useState({
@@ -27,70 +27,58 @@ const RegistrationPage = () => {
   return (
     <>
 
-    <className className="body">
-      <className className="wrapper2">
-        <className className="form-box login">
-        <h2>Inscription</h2>
-        
-        
-          <form onSubmit={handleSubmit}>
-            
-            
-            <div className="input-box2">
-            <label>
-              <h6>Nom Complet:</h6>
-              <input
-                type="text"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleInputChange}
-                />
-            </label>
-            </div>
-          
-            <div className="input-box3">
-            <label>
-              <h6>Email:</h6>
-              <input
-                type="email"
+
+    <div className='body2'>
+      <div className='box'>
+        <form onSubmit={handleSubmit}>
+          <h2>Incription</h2>
+
+
+          <div className="inputBox">
+            <input type="text"
+              required="required" 
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleInputChange}
+            />
+            <span>Nom complet</span>
+            <i></i>
+          </div>
+
+
+          <div className="inputBox">
+            <input type="text"
+                required="required" 
                 name="email"
                 value={formData.email}
-                onChange={handleInputChange}
-                />
-            </label>
-            </div>
-
-        
-            <div className="input-box3">
-            <label>
-              <h6>Mot de Passe:</h6>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                />
-            </label>
-            </div>
-         
-          
-          <div className='btn-inscription'>
-            <button className='btn' type="submit">S'inscrire</button>
+                onChange={handleInputChange} />
+            <span>Email</span>
+            <i></i>
           </div>
-          </form>
-      
 
-        <div>
-          <br />
-          <h6>Déjà un compte ? <a href="/Connexion">Connectez-vous.</a></h6>
+          <div className="inputBox">
+            <input type="password" 
+              name="password" 
+              required="required" 
+              value={formData.password} 
+              onChange={handleInputChange}
+            />
+            <span>Mot de Passe</span>
+            <i></i>
+          </div>
+
+          <input type="submit" value="sign in" />
+
+          <div className='links'>
+          <h6 >Déjà un compte ? <a href="/Connexion">Connectez-vous.</a></h6>
         </div>
-      
+        </form>
 
-        </className>
-      </className>
-    </className>
-      
         
+
+      </div>
+    </div>
+  
           
     </>
   );
